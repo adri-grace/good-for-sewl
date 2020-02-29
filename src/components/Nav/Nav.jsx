@@ -2,6 +2,8 @@ import React from 'react';
 import styles from './Nav.module.css';
 import { Link } from 'react-router-dom';
 
+import userService from '../../utils/userService';
+
 const Nav = (props) => {
     return (
         <nav className={`${styles.nav} navbar navbar-expand-lg navbar-light bg-light`}>
@@ -12,13 +14,17 @@ const Nav = (props) => {
             <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav ml-auto">
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Features</a>
+                        <Link className="nav-link" to="">Login</Link>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Pricing</a>
+                        <Link className="nav-link" to="">Sign Up</Link>
+                    </li>
+
+                    <li className="nav-item">
+                        <Link className="nav-link" to="" onClick={props.handleLogout}>Log Out</Link>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link disabled" href="#">Disabled</a>
+                        <Link className="nav-link" to="/myprojects">My Projects</Link>
                     </li>
                 </ul>
             </div>

@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Nav from './components/Nav/Nav';
 
 import Home from './pages/Home/Home';
+import MyProjects from './pages/MyProjects/MyProjects';
 
 class App extends Component {
   state = {
@@ -14,10 +15,10 @@ class App extends Component {
     show: false
   }
   handleClose = () => {
-    this.setState({show: false})
+    this.setState({ show: false })
   }
   handleShowModal = () => {
-    this.setState({show: true})
+    this.setState({ show: true })
   }
   handleSignUpOrLogin = () => {
     this.setState({ user: userService.getUser() })
@@ -32,11 +33,12 @@ class App extends Component {
   render() {
     return (
       <div className="App-outer">
-        <Nav />
+        <Nav handleLogout={this.handleLogout} />
         <div className="App-inner">
           <Switch>
-            <Route exact path="/" render={props => 
-            <Home {...props} isShowing={this.state.show} handleClose={this.handleClose} handleShowModal={this.handleShowModal} handleSignUpOrLogin={this.handleSignUpOrLogin} />} />
+            <Route exact path="/" render={props =>
+              <Home {...props} isShowing={this.state.show} handleClose={this.handleClose} handleShowModal={this.handleShowModal} handleSignUpOrLogin={this.handleSignUpOrLogin} />} />
+            <MyProjects />
           </Switch>
         </div>
       </div>
