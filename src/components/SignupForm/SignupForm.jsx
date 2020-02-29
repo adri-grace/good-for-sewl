@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styles from './SignupForm.module.css';
 import userService from '../../utils/userService';
+import { Modal, Button } from "react-bootstrap";
 
 class SignupForm extends Component {
     state = this.getInitialState();
@@ -14,15 +15,6 @@ class SignupForm extends Component {
             error: ''
         };
     }
-    isFormValid = () => {
-        return (
-            this.state.firstName &&
-            this.state.lastName &&
-            this.state.email &&
-            this.state.password &&
-            this.state.password === this.state.passwordConfirm
-        );
-    }
     handleChange = e => {
         this.setState({
             error: '',
@@ -33,11 +25,12 @@ class SignupForm extends Component {
         e.preventDefault();
         if (!this.isFormValid()) return;
         try {
-            const { firstName, lastName, email, password } = this.state; 
+            const { firstName, lastName, email, password } = this.state;
             await userService.signup({ firstName, lastName, email, password });
             this.setState(this.getInitialState(), () => {
                 this.props.handleSignUpOrLogin();
-                // this.props.history.push('/');
+                this.props.handleClose();
+                this.props.history.push('/');
             });
         } catch (error) {
             this.setState({
@@ -51,8 +44,17 @@ class SignupForm extends Component {
         }
 
     }
-    render() { 
-        return ( 
+    isFormValid = () => {
+        return (
+            this.state.firstName &&
+            this.state.lastName &&
+            this.state.email &&
+            this.state.password &&
+            this.state.password === this.state.passwordConfirm
+        );
+    }
+    render() {
+        return (
             <section className={styles.section}>
                 {
                     this.state.error && <p>{this.state.error}</p>
@@ -103,13 +105,12 @@ class SignupForm extends Component {
                             name="passwordConfirm"
                             id="passwordConfirm"
                             onChange={this.handleChange} />
-
-                        <button disabled={!this.isFormValid()} type="submit">Sign up</button>
+                        <Modal.Footer><Button type="submit" disabled={!this.isFormValid()}>Login</Button></Modal.Footer>
                     </fieldset>
                 </form>
             </section>
-         );
+        );
     }
 }
- 
+
 export default SignupForm;

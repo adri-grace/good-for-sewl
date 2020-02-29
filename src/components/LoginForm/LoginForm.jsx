@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styles from './LoginForm.module.css';
 import userService from '../../utils/userService';
-import {Modal, Button} from "react-bootstrap";
+import { Modal, Button } from "react-bootstrap";
 
 class LoginForm extends Component {
     state = this.getInitialState();
@@ -20,7 +20,6 @@ class LoginForm extends Component {
     }
     handleSubmit = async e => {
         e.preventDefault();
-        console.log('executed handlesubmit');
         if (!this.isFormValid()) return;
         try {
             const { email, password } = this.state;
@@ -44,8 +43,8 @@ class LoginForm extends Component {
             this.state.email &&
             this.state.password);
     }
-    render() { 
-        return ( 
+    render() {
+        return (
             <section className={styles.section}>
                 {
                     this.state.error && <p>{this.state.error}</p>
@@ -69,13 +68,13 @@ class LoginForm extends Component {
                             name="password"
                             onChange={this.handleChange}
                         />
-                            <Modal.Footer><Button type="submit" disabled={!this.isFormValid()}>Login</Button></Modal.Footer>
-            
+                        <Modal.Footer><Button type="submit" disabled={!this.isFormValid()}>Login</Button></Modal.Footer>
+
                     </fieldset>
                 </form>
             </section>
-         );
+        );
     }
 }
- 
+
 export default LoginForm;
