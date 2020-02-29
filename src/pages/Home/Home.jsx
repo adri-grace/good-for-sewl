@@ -15,8 +15,8 @@ const Home = (props) => {
             </div>
             <div className="row wrap justify-content-center">
                 <div className="d-flex col-12 col-md-8 col-lg-6 justify-content-around">
-                <LoginButton />
-            <SignupButton />
+                <LoginButton {...props} />
+                <SignupButton {...props} />
                 </div>
             </div>
         </main>

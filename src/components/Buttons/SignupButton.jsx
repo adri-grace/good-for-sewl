@@ -1,6 +1,7 @@
 import React from 'react';
 import Modal from "react-bootstrap/Modal";
 import Button from 'react-bootstrap/Button';
+import SignupForm from '../SignupForm/SignupForm';
 
 const SignupButton = (props) => {
 
@@ -19,7 +20,9 @@ const SignupButton = (props) => {
             <Modal.Header>
               <Modal.Title>Sign Up</Modal.Title>
             </Modal.Header>
-            <Modal.Body>Add sign up form here</Modal.Body>
+            <Modal.Body>
+              <SignupForm {...props}/>
+            </Modal.Body>
             <Modal.Footer>
               <button onClick={hideModal}>Cancel</button>
               <button>Save</button>

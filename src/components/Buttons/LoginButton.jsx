@@ -1,32 +1,23 @@
-import React, {useState } from 'react';
-import Modal from "react-bootstrap/Modal";
-import Button from 'react-bootstrap/Button';
+import React, {Component} from 'react';
+import {Modal, Button} from "react-bootstrap";
+import LoginForm from '../LoginForm/LoginForm';
 
-
-const LoginButton = (props) => {
-    const [isOpen, setIsOpen] = React.useState(false);
-
-  const showModal = () => {
-    setIsOpen(true);
-  };
-
-  const hideModal = () => {
-    setIsOpen(false);
-  };
+class LoginButton extends Component {
+  render() {
+    console.log("PROPSSSS:", this.props);
     return ( 
     <>
-    <Button onClick={showModal}>Login</Button>
-      <Modal show={isOpen} onHide={hideModal}>
+    <Button onClick={this.props.handleShowModal}>Login</Button>
+      <Modal show={this.props.isShowing} onHide={this.handleClose}>
         <Modal.Header>
           <Modal.Title>Login</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Add login form here</Modal.Body>
-        <Modal.Footer>
-          <button onClick={hideModal}>Cancel</button>
-          <button>Save</button>
-        </Modal.Footer>
+        <Modal.Body>
+          <LoginForm {...this.props} />
+        </Modal.Body>
       </Modal>
     </> );
+  }
 }
  
 export default LoginButton;
