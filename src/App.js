@@ -4,7 +4,7 @@ import './App.css';
 import userService from './utils/userService';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import Nav from './components/Nav/Nav';
+import Navigation from './components/Nav/Navigation';
 
 import Home from './pages/Home/Home';
 import MyProjects from './pages/MyProjects/MyProjects';
@@ -33,7 +33,7 @@ class App extends Component {
   render() {
     return (
       <div className="App-outer">
-        <Nav handleLogout={this.handleLogout} />
+        <Navigation handleLogout={this.handleLogout} />
         <div className="App-inner">
           <Switch>
             <Route exact path="/" render={props =>
