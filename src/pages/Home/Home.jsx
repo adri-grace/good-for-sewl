@@ -2,12 +2,12 @@ import React from 'react';
 import styles from "./Home.module.css";
 import LoginButton from '../../components/Buttons/LoginButton';
 import SignupButton from '../../components/Buttons/SignupButton';
-import { Modal, Button, Card, CardDeck, Container, Row, Col } from "react-bootstrap";
+import { Button, Card, CardDeck, Container, Row, Col } from "react-bootstrap";
 
 
 const Home = (props) => {
     return (
-        <main className="container py-5">
+        <main className={`${styles.Home} container py-5`}>
             <Row className="wrap justify-content-center mb-5">
                 <Col xs lg={9}>
                     <h1 className="text-center mb-4">Creating things is good for soul. <br />So is inspiring others.</h1>
@@ -15,10 +15,10 @@ const Home = (props) => {
                 </Col>
             </Row>
             <Row className="wrap justify-content-center">
-                <div className="d-flex col-12 col-md-8 col-lg-6 justify-content-around">
+                <Col xs md={8} lg={6} className="d-flex justify-content-around">
                     <LoginButton {...props} />
                     <SignupButton {...props} />
-                </div>
+                </Col>
             </Row>
             <Container className="my-5">
                 <Row className="wrap justify-content-around">

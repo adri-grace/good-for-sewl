@@ -38,7 +38,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" render={props =>
               <Home {...props} isShowing={this.state.show} handleClose={this.handleClose} handleShowModal={this.handleShowModal} handleSignUpOrLogin={this.handleSignUpOrLogin} />} />
-            <MyProjects />
+            <MyProjects {...this.props} />
           </Switch>
         </div>
       </div>

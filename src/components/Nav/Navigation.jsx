@@ -7,7 +7,7 @@ import userService from '../../utils/userService';
 const Navigation = (props) => {
     return (
         <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
-            <Navbar.Brand href="#home">Good for Your Sew-l</Navbar.Brand>
+            <Navbar.Brand href="/">Good for Your Sew-l</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
@@ -16,7 +16,7 @@ const Navigation = (props) => {
                 </Nav>
 
                 <Nav>
-      <Nav.Link href="#deets">More deets</Nav.Link>
+      <Nav.Link href="/myprojects">My Projects</Nav.Link>
       <Nav.Link eventKey={2} href="#memes">
         Dank memes
       </Nav.Link>
