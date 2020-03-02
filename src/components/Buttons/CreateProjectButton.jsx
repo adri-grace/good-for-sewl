@@ -1,12 +1,20 @@
 import React, { Component } from 'react';
-import {Modal, Button} from 'react-bootstrap';
+import { Modal, Button } from 'react-bootstrap';
 import CreateProjectForm from '../CreateProjectForm/CreateProjectForm';
 
 class CreateProjectButton extends Component {
     state = {  }
     render() { 
         return ( <>
-        <Button>Create a Project</Button>
+        <Button onClick={this.props.handleShowModal}>Create a Project</Button>
+        <Modal show={this.props.isShowing} onHide={this.handleClose}>
+          <Modal.Header>
+            <Modal.Title></Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <CreateProjectForm {...this.props} />
+          </Modal.Body>
+        </Modal>
         </> );
     }
 }

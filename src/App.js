@@ -37,8 +37,20 @@ class App extends Component {
         <div className="App-inner">
           <Switch>
             <Route exact path="/" render={props =>
-              <Home {...props} isShowing={this.state.show} handleClose={this.handleClose} handleShowModal={this.handleShowModal} handleSignUpOrLogin={this.handleSignUpOrLogin} />} />
-            <MyProjects {...this.props} />
+              <Home 
+              {...props} 
+              isShowing={this.state.show} 
+              handleClose={this.handleClose} 
+              handleShowModal={this.handleShowModal} 
+              handleSignUpOrLogin={this.handleSignUpOrLogin} />} />
+
+              <Route exact path="/myprojects" render={props => 
+              <MyProjects 
+              {...props}
+              isShowing={this.state.show} 
+              handleClose={this.handleClose} 
+              handleShowModal={this.handleShowModal} />
+              } />
           </Switch>
         </div>
       </div>

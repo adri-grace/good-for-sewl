@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Modal, Button } from "react-bootstrap";
 import LoginForm from '../LoginForm/LoginForm';
+
 class LoginButton extends Component {
   render() {
     return (

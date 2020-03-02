@@ -10,7 +10,7 @@ class MyProjects extends Component {
     render() {
         return (
             <>
-                <Container className={styles.MyProjects}>
+                <Container className={`${styles.MyProjects} py-5`}>
                     <Row className="wrap justify-content-center mb-5">
                         <h1>My Projects</h1>
                     </Row>
