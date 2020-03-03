@@ -7,8 +7,8 @@ class CreateProjectButton extends Component {
     render() { 
         return ( <>
         <Button onClick={this.props.handleShowModal}>Create a Project</Button>
-        <Modal show={this.props.isShowing} onHide={this.handleClose}>
-          <Modal.Header>
+        <Modal show={this.props.isShowing} onHide={this.props.handleClose}>
+          <Modal.Header closeButton>
             <Modal.Title></Modal.Title>
           </Modal.Header>
           <Modal.Body>

@@ -7,8 +7,8 @@ class LoginButton extends Component {
     return (
       <>
         <Button onClick={this.props.handleShowModal}>Login</Button>
-        <Modal show={this.props.isShowing} onHide={this.handleClose}>
-          <Modal.Header>
+        <Modal show={this.props.isShowing} onHide={this.props.handleClose}>
+          <Modal.Header closeButton>
             <Modal.Title>Login</Modal.Title>
           </Modal.Header>
           <Modal.Body>

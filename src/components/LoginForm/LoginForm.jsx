@@ -68,7 +68,8 @@ class LoginForm extends Component {
                             name="password"
                             onChange={this.handleChange}
                         />
-                        <Modal.Footer><Button type="submit" disabled={!this.isFormValid()}>Login</Button></Modal.Footer>
+                        <Modal.Footer>
+                            <Button type="submit" disabled={!this.isFormValid()}>Login</Button></Modal.Footer>
 
                     </fieldset>
                 </form>
