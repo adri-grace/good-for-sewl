@@ -16,9 +16,8 @@ const Home = (props) => {
             </Row>
             <Row className="wrap justify-content-center">
                 <Col xs md={8} lg={6} className="d-flex justify-content-around">
-                    <div><LoginButton {...props} /></div>
-                    
-                    <div><SignupButton {...props} /></div>
+                <SignupButton {...props} />
+                <LoginButton {...props} />
                 </Col>
             </Row>
             <Container className="my-5">
