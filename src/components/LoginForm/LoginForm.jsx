@@ -9,7 +9,7 @@ class LoginForm extends Component {
         return {
             email: '',
             password: '',
-            error: '',
+            error: ''
         };
     }
     handleChange = e => {
@@ -26,7 +26,7 @@ class LoginForm extends Component {
             await userService.login({ email, password });
             this.setState(this.getInitialState(), () => {
                 this.props.handleSignUpOrLogin();
-                this.props.handleClose();
+                // this.props.handleClose();
                 this.props.history.push('/');
             });
         } catch (error) {

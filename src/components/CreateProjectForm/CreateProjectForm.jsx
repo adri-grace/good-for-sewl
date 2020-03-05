@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import styles from './CreateProjectForm.module.css';
+import userService from '../../utils/userService';
+import projectService from '../../utils/projectService';
 
 class CreateProjectForm extends Component {
     state = this.getInitialState();
@@ -24,10 +26,11 @@ class CreateProjectForm extends Component {
         if (!this.isFormValid()) return;
         try {
             const { projectName, description, pattern, imageURL } = this.state;
-            // await userService.signup({ projectName, description, pattern, imageURL });
+            const addedBy = userService.getUser()._id;
+            await projectService.createProject({ projectName, description, pattern, imageURL, addedBy});
             this.setState(this.getInitialState(), () => {
-                // this.props.handleSignUpOrLogin();
-                this.props.handleClose();
+                this.props.handleGetProjects();
+                // this.props.handleClose();
                 this.props.history.push('/myprojects');
             });
         } catch (error) {

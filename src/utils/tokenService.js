@@ -32,5 +32,6 @@ function setToken(token) {
 export default {
     setToken,
     getUserFromToken,
-    removeToken
+    removeToken,
+    getToken
 }

@@ -18,6 +18,9 @@ app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
 const usersRoutes = require('./routes/api/users');
 app.use('/api/users', usersRoutes);
 
+const projectsRoutes = require('./routes/api/projects');
+app.use('/api/projects', projectsRoutes);
+
 app.get('/*', function (req, res) {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
