@@ -14,12 +14,12 @@ class App extends Component {
     user: userService.getUser(),
     show: false
   }
-  handleClose = () => {
-    this.setState({ show: false })
-  }
-  handleShowModal = () => {
-    this.setState({ show: true })
-  }
+  // handleClose = () => {
+  //   this.setState({ show: false })
+  // }
+  // handleShowModal = () => {
+  //   this.setState({ show: true })
+  // }
   handleSignUpOrLogin = () => {
     this.setState({ user: userService.getUser() })
   }
@@ -40,8 +40,8 @@ class App extends Component {
               <Home 
               {...props} 
               isShowing={this.state.show} 
-              handleClose={this.handleClose} 
-              handleShowModal={this.handleShowModal} 
+              // handleClose={this.handleClose} 
+              // handleShowModal={this.handleShowModal} 
               handleSignUpOrLogin={this.handleSignUpOrLogin} />} />
 
               <Route exact path="/myprojects" render={props => 

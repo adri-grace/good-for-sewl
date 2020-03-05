@@ -1,22 +1,28 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import CreateProjectForm from '../CreateProjectForm/CreateProjectForm';
 
-class CreateProjectButton extends Component {
-    state = {  }
-    render() { 
+const CreateProjectButton = (props) => {
+  const [isOpen, setIsOpen] = React.useState(false);
+
+  const showModal = () => {
+    setIsOpen(true);
+  };
+
+  const hideModal = () => {
+    setIsOpen(false);
+  };
         return ( <>
-        <Button onClick={this.props.handleShowModal}>Create a Project</Button>
-        <Modal show={this.props.isShowing} onHide={this.props.handleClose}>
+        <Button onClick={showModal}>Create a Project</Button>
+        <Modal show={isOpen} onHide={hideModal}>
           <Modal.Header closeButton>
             <Modal.Title></Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <CreateProjectForm {...this.props} />
+            <CreateProjectForm {...props} />
           </Modal.Body>
         </Modal>
         </> );
-    }
 }
  
 export default CreateProjectButton;

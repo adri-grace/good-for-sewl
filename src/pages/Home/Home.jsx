@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from "./Home.module.css";
 import LoginButton from '../../components/Buttons/LoginButton';
 import SignupButton from '../../components/Buttons/SignupButton';
@@ -6,6 +6,15 @@ import { Button, Card, CardDeck, Container, Row, Col } from "react-bootstrap";
 
 
 const Home = (props) => {
+    const [isOpen, setIsOpen] = React.useState(false);
+
+  const showModal = () => {
+    setIsOpen(true);
+  };
+
+  const hideModal = () => {
+    setIsOpen(false);
+  };
     return (
         <main className={`${styles.Home} container py-5`}>
             <Row className="wrap justify-content-center mb-5">

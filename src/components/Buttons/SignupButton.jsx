@@ -1,22 +1,29 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { Modal, Button } from "react-bootstrap";
 import SignupForm from '../SignupForm/SignupForm';
 
-class SignupButton extends Component {
-  render() {
+const SignupButton = (props) => {
+  const [isOpen, setIsOpen] = React.useState(false);
+
+  const showModal = () => {
+    setIsOpen(true);
+  };
+
+  const hideModal = () => {
+    setIsOpen(false);
+  };
     return (
       <>
-        <Button onClick={this.props.handleShowModal}>Sign up</Button>
-        <Modal show={this.props.isShowing} onHide={this.props.handleClose}>
+        <Button onClick={showModal}>Sign up</Button>
+        <Modal show={isOpen} onHide={hideModal}>
         <Modal.Header closeButton>
             <Modal.Title>Sign Up</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <SignupForm {...this.props} />
+            <SignupForm {...props} />
           </Modal.Body>
         </Modal>
       </>);
-  }
 }
 
 export default SignupButton;
