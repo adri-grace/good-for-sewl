@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styles from "./Home.module.css";
 import LoginButton from '../../components/Buttons/LoginButton';
 import SignupButton from '../../components/Buttons/SignupButton';

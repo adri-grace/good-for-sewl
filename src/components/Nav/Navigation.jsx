@@ -20,12 +20,11 @@ const Navigation = (props) => {
     <Nav className="ml-auto" >
     {/* <Nav.Link href="#">Login</Nav.Link>
     <Nav.Link href="#">Sign Up</Nav.Link> */}
-    <Nav.Link><LoginButton /></Nav.Link>
-    <Nav.Link><SignupButton /></Nav.Link>
+    <Nav.Link><LoginButton {...props} /></Nav.Link>
+    <Nav.Link><SignupButton {...props} /></Nav.Link>
     </Nav>
     </>
 
-    var pageTitle = `Welcome, { auth.firstname }`
     return (
         <Navbar collapseOnSelect expand="lg" bg="light" variant="light" className={`${styles.Nav}`}>
             <Navbar.Brand href="/">Good for Your Sew-l</Navbar.Brand>

@@ -29,7 +29,8 @@ class App extends Component {
     // Call userService.logout();
     userService.logout();
     // Set user prop on state to null
-    this.setState({ user: null })
+    this.setState({ user: null });
+    // this.props.history.push('/');
 
   }
   handleGetProjects = async () => {
