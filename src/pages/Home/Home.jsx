@@ -6,15 +6,7 @@ import { Button, Card, CardDeck, Container, Row, Col } from "react-bootstrap";
 
 
 const Home = (props) => {
-    const [isOpen, setIsOpen] = React.useState(false);
 
-  const showModal = () => {
-    setIsOpen(true);
-  };
-
-  const hideModal = () => {
-    setIsOpen(false);
-  };
     return (
         <>
             <Container className={`${styles.Home} py-5`}>
