@@ -19,7 +19,18 @@ async function index(req, res) {
     }
   }
 
+  async function deleteProject(req, res) {
+    try {
+      const project = await Project.remove({});
+      res.json({ project });
+    } catch (error) {
+      res.status(401).json({err: 'cannot delete'})
+    }
+  }
+
+
 module.exports = {
     createProject,
-    index
+    index,
+    deleteProject
 }

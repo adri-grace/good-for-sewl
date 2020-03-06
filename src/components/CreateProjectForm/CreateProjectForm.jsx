@@ -30,7 +30,7 @@ class CreateProjectForm extends Component {
             await projectService.createProject({ projectName, description, pattern, imageURL, addedBy});
             this.setState(this.getInitialState(), () => {
                 this.props.handleGetProjects();
-                // this.props.handleClose();
+                this.props.handleClose();
                 this.props.history.push('/myprojects');
             });
         } catch (error) {

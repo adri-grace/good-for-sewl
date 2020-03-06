@@ -3,6 +3,7 @@ import styles from './MyProjects.module.css';
 import { Button, Card, CardDeck, Container, Row } from "react-bootstrap";
 import CreateProjectButton from '../../components/Buttons/CreateProjectButton';
 import userService from '../../utils/userService';
+import projectService from '../../utils/projectService';
 
 
 class MyProjects extends Component {
@@ -12,12 +13,12 @@ class MyProjects extends Component {
             this.handleGetProjects();
         })
     }
-    //   handleDelete = () => {
-    //     if(userService.getUser()) {
-    //       const {projects} = projectService.deleteProject();
-    //       this.setState({projects});
-    //     }
-    //   }
+    handleDelete = () => {
+    if(userService.getUser()) {
+        const {projects} = projectService.deleteProject();
+        this.setState({projects});
+    }
+    }
     render() {
         return (
             <>

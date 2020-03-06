@@ -8,8 +8,8 @@ function createProject(info) {
             'Content-type' : 'application/json',
             'Authorization' : 'Bearer ' + tokenService.getToken() }),
         body: JSON.stringify(info)
-    }).then(response => {
-        if (response.ok) return response.json();
+    }).then(res => {
+        if (res.ok) return res.json();
         throw new Error('Are you logged in?');
     })
 }
@@ -20,7 +20,18 @@ function index() {
         headers: {'Authorization' : 'Bearer ' + tokenService.getToken()}
     }).then(res => res.json());
 }
+
+function deleteProject() {
+    return fetch(BASE_URL + '_id', {
+        method: 'DELETE',
+        // headers: new Headers({ 
+        //     'Content-type' : 'application/json',
+        //     'Authorization' : 'Bearer ' + tokenService.getToken() }),
+    }).then(res => res.json());  
+}
+
 export default {
     createProject,
-    index
+    index,
+    deleteProject
 }
