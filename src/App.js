@@ -16,9 +16,9 @@ class App extends Component {
     show: false,
     projects: []
   }
-  // handleClose = () => {
-  //   this.setState({ show: false })
-  // }
+  handleClose = () => {
+    this.setState({ show: false })
+  }
   // handleShowModal = () => {
   //   this.setState({ show: true })
   // }
@@ -26,10 +26,9 @@ class App extends Component {
     this.setState({ user: userService.getUser() })
   }
   handleLogout = () => {
-    // Call userService.logout();
     userService.logout();
     // Set user prop on state to null
-    this.setState({ user: null });
+    this.setState({ user: null, projects: [] });
     // this.props.history.push('/');
 
   }
@@ -45,14 +44,18 @@ class App extends Component {
   render() {
     return (
       <div className="App-outer">
-        <Navigation {...this.props} handleLogout={this.handleLogout} />
+        <Navigation 
+        {...this.props} 
+        handleLogout={this.handleLogout}
+        handleClose={this.handleClose}
+        handleSignUpOrLogin={this.handleSignUpOrLogin} />
         <div className="App-inner">
           <Switch>
             <Route exact path="/" render={props =>
               <Home 
               {...props} 
               isShowing={this.state.show} 
-              // handleClose={this.handleClose} 
+              handleClose={this.handleClose} 
               // handleShowModal={this.handleShowModal} 
               handleSignUpOrLogin={this.handleSignUpOrLogin} />} />
 

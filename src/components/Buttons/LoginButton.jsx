@@ -14,7 +14,7 @@ const LoginButton = (props) => {
   };
     return (
       <>
-        <Button onClick={showModal}>Login</Button>
+        <Button className="link" onClick={showModal}>Login</Button>
         <Modal show={isOpen} onHide={hideModal}>
           <Modal.Header closeButton>
             <Modal.Title>Login</Modal.Title>

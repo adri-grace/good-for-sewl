@@ -4,9 +4,23 @@ import LoginButton from '../../components/Buttons/LoginButton';
 import SignupButton from '../../components/Buttons/SignupButton';
 import { Button, Card, CardDeck, Container, Row, Col } from "react-bootstrap";
 
+import userService from '../../utils/userService';
 
 const Home = (props) => {
-
+    const user = userService.getUser('user');
+    const conditionalUI = userService.getUser() 
+    ? <> 
+    <Col xs md={8} lg={6} className="d-flex justify-content-around">
+    <h3>Welcome back {user.firstName}!</h3>
+    </Col>
+    </> 
+    : 
+    <>
+    <Col xs md={8} lg={6} className="d-flex justify-content-around">
+    <SignupButton {...props} />
+    <LoginButton {...props} />
+    </Col>
+    </>
     return (
         <>
             <Container className={`${styles.Home} py-5`}>
@@ -17,10 +31,7 @@ const Home = (props) => {
                     </Col>
                 </Row>
                 <Row className="wrap justify-content-center">
-                    <Col xs md={8} lg={6} className="d-flex justify-content-around">
-                    <SignupButton {...props} />
-                    <LoginButton {...props} />
-                    </Col>
+                    {conditionalUI}
                 </Row>
                 </Container>
                 <Container className="my-5">
