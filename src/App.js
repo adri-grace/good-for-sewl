@@ -20,9 +20,6 @@ class App extends Component {
   handleClose = () => {
     this.setState({ show: false })
   }
-  // handleShowModal = () => {
-  //   this.setState({ show: true })
-  // }
   handleSignUpOrLogin = () => {
     this.setState({ user: userService.getUser() });
     this.props.history.push('/myprojects')
@@ -44,6 +41,7 @@ class App extends Component {
     if(userService.getUser()) {
       const {usersProjects} = await projectService.getUsersProjects();
       this.setState({usersProjects});
+      this.props.history.push('/myprojects');
     }
   }
 
@@ -57,7 +55,8 @@ class App extends Component {
         {...this.props} 
         handleLogout={this.handleLogout}
         handleClose={this.handleClose}
-        handleSignUpOrLogin={this.handleSignUpOrLogin} />
+        handleSignUpOrLogin={this.handleSignUpOrLogin}
+        handleGetUsersProjects={this.handleGetUsersProjects} />
         <div className="App-inner">
           <Switch>
             <Route exact path="/" render={props =>
@@ -65,8 +64,8 @@ class App extends Component {
               {...props} 
               isShowing={this.state.show} 
               handleClose={this.handleClose} 
-              // handleShowModal={this.handleShowModal} 
-              handleSignUpOrLogin={this.handleSignUpOrLogin} />} />
+              handleSignUpOrLogin={this.handleSignUpOrLogin}
+              handleGetUsersProjects={this.handleGetUsersProjects} />} />
 
               <Route exact path="/myprojects" render={props => 
               <MyProjects 

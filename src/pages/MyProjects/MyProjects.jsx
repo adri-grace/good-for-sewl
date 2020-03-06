@@ -8,17 +8,12 @@ import projectService from '../../utils/projectService';
 
 class MyProjects extends Component {
 
-    handleSignUpOrLogin = () => {
-        this.setState({ user: userService.getUser() }, () => {
-            this.handleGetUsersProjects();
-            this.props.handleClose();
-        })
-    }
     handleDelete = async (id) => {
     if(userService.getUser()) {
         const {projects} = await projectService.deleteProject(id);
         this.setState({projects});
-        this.props.history.push('/myprojects')
+        this.props.history.push('/myprojects');
+        this.props.handleGetUsersProjects();
         }
     }
     render() {

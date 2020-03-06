@@ -27,7 +27,8 @@ class LoginForm extends Component {
             this.setState(this.getInitialState(), () => {
                 this.props.handleSignUpOrLogin();
                 this.props.handleClose();
-                // this.props.history.push('/myprojects');
+                this.props.history.push('/myprojects');
+                this.props.handleGetUsersProjects();
             });
         } catch (error) {
             this.setState({
