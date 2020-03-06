@@ -44,7 +44,7 @@ class App extends Component {
   render() {
     return (
       <div className="App-outer">
-        <Navigation handleLogout={this.handleLogout} />
+        <Navigation {...this.props} handleLogout={this.handleLogout} />
         <div className="App-inner">
           <Switch>
             <Route exact path="/" render={props =>
