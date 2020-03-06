@@ -30,7 +30,7 @@ class SignupForm extends Component {
             this.setState(this.getInitialState(), () => {
                 this.props.handleSignUpOrLogin();
                 this.props.handleClose();
-                this.props.history.push('/');
+                //this.props.history.push('/');
             });
         } catch (error) {
             this.setState({

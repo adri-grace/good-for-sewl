@@ -18,8 +18,6 @@ const Navigation = (props) => {
     : 
     <>
     <Nav className="ml-auto" >
-    {/* <Nav.Link href="#">Login</Nav.Link>
-    <Nav.Link href="#">Sign Up</Nav.Link> */}
     <LoginButton {...props} />
     <div className="mr-4">&nbsp;</div>
     <SignupButton {...props} />
