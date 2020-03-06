@@ -24,9 +24,9 @@ function index() {
 function deleteProject() {
     return fetch(BASE_URL + '_id', {
         method: 'DELETE',
-        // headers: new Headers({ 
-        //     'Content-type' : 'application/json',
-        //     'Authorization' : 'Bearer ' + tokenService.getToken() }),
+        headers: new Headers({ 
+            'Content-type' : 'application/json',
+            'Authorization' : 'Bearer ' + tokenService.getToken() }),
     }).then(res => res.json());  
 }
 
