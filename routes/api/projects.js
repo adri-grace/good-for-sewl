@@ -5,7 +5,8 @@ router.use(require('../../config/auth'));
 
 router.post('/', isAuthenticated, projectCtrl.createProject);
 router.get('/', projectCtrl.index);
-router.delete('/_id', isAuthenticated, projectCtrl.deleteProject);
+router.get('/user', isAuthenticated, projectCtrl.getUsersProjects);
+router.delete('/:id', isAuthenticated, projectCtrl.deleteProject);
 
 function isAuthenticated(req,res, next) {
     if (req.user) return next();

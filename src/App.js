@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, withRouter } from 'react-router-dom';
 import './App.css';
 import userService from './utils/userService';
 import projectService from './utils/projectService';
@@ -14,7 +14,8 @@ class App extends Component {
   state = {
     user: userService.getUser(),
     show: false,
-    projects: []
+    projects: [],
+    usersProjects: []
   }
   handleClose = () => {
     this.setState({ show: false })
@@ -23,13 +24,14 @@ class App extends Component {
   //   this.setState({ show: true })
   // }
   handleSignUpOrLogin = () => {
-    this.setState({ user: userService.getUser() })
+    this.setState({ user: userService.getUser() });
+    this.props.history.push('/myprojects')
   }
   handleLogout = () => {
     userService.logout();
     // Set user prop on state to null
     this.setState({ user: null, projects: [] });
-    // this.props.history.push('/');
+    this.props.history.push('/');
 
   }
   handleGetProjects = async () => {
@@ -38,6 +40,13 @@ class App extends Component {
       this.setState({projects});
     }
   }
+  handleGetUsersProjects = async () => {
+    if(userService.getUser()) {
+      const {usersProjects} = await projectService.getUsersProjects();
+      this.setState({usersProjects});
+    }
+  }
+
   componentDidMount() {
     this.handleGetProjects();
   }
@@ -65,8 +74,8 @@ class App extends Component {
               isShowing={this.state.show} 
               handleClose={this.handleClose} 
               handleShowModal={this.handleShowModal}
-              projects={this.state.projects}
-              handleGetProjects={this.handleGetProjects} />
+              usersProjects={this.state.usersProjects}
+              handleGetUsersProjects={this.handleGetUsersProjects} />
               } />
           </Switch>
         </div>
@@ -75,4 +84,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);

@@ -21,8 +21,15 @@ function index() {
     }).then(res => res.json());
 }
 
-function deleteProject() {
-    return fetch(BASE_URL + '_id', {
+function getUsersProjects() {
+    return fetch(BASE_URL + 'user', {
+        method: 'GET',
+        headers: {'Authorization' : 'Bearer ' + tokenService.getToken()}
+    }).then(res => res.json());
+}
+
+function deleteProject(id) {
+    return fetch(BASE_URL + id, {
         method: 'DELETE',
         headers: new Headers({ 
             'Content-type' : 'application/json',
@@ -33,5 +40,6 @@ function deleteProject() {
 export default {
     createProject,
     index,
-    deleteProject
+    deleteProject,
+    getUsersProjects
 }

@@ -19,10 +19,19 @@ async function index(req, res) {
     }
   }
 
+  async function getUsersProjects(req, res) {
+    try {
+      const usersProjects = await Project.find({'addedBy' : req.user._id}).sort('-createdAt').populate('addedBy');
+      res.json({ usersProjects });
+    } catch (error) {
+      res.status(401).json({err: 'cannot show'})
+    }
+  }
+
   async function deleteProject(req, res) {
     try {
-      const project = await Project.remove({});
-      res.json({ project });
+      const project = await Project.findByIdAndDelete(req.params.id);
+      getUsersProjects(req, res);
     } catch (error) {
       res.status(401).json({err: 'cannot delete'})
     }
@@ -32,5 +41,6 @@ async function index(req, res) {
 module.exports = {
     createProject,
     index,
-    deleteProject
+    deleteProject,
+    getUsersProjects
 }

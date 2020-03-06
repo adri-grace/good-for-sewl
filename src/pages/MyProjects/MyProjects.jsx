@@ -10,14 +10,16 @@ class MyProjects extends Component {
 
     handleSignUpOrLogin = () => {
         this.setState({ user: userService.getUser() }, () => {
-            this.handleGetProjects();
+            this.handleGetUsersProjects();
+            this.props.handleClose();
         })
     }
-    handleDelete = () => {
+    handleDelete = async (id) => {
     if(userService.getUser()) {
-        const {projects} = projectService.deleteProject();
+        const {projects} = await projectService.deleteProject(id);
         this.setState({projects});
-    }
+        this.props.history.push('/myprojects')
+        }
     }
     render() {
         return (
@@ -34,7 +36,7 @@ class MyProjects extends Component {
                     <Row className="wrap justify-content-around">
                         <CardDeck>
                             {
-                                this.props.projects.map(({ projectName, description, pattern, imageURL, _id }) => (
+                                this.props.usersProjects.map(({ projectName, description, pattern, imageURL, _id }) => (
                                     <Card key={_id} style={{ width: '300px' }} >
                                         <Card.Img variant="top" src={imageURL} />
                                         <Card.Body>
@@ -46,7 +48,7 @@ class MyProjects extends Component {
                                         </Card.Body>
                                         <Card.Footer>
                                             <Button className="mr-4">Edit</Button>
-                                            <Button onClick={this.handleDelete} type="submit">Delete</Button>
+                                            <Button onClick={() => this.handleDelete(_id)} type="submit">Delete</Button>
                                         </Card.Footer>
                                     </Card>
                                 ))
