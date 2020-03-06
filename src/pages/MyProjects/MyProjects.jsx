@@ -10,8 +10,8 @@ class MyProjects extends Component {
 
     handleDelete = async (id) => {
     if(userService.getUser()) {
-        const {projects} = await projectService.deleteProject(id);
-        this.setState({projects});
+        const {usersProjects} = await projectService.deleteProject(id);
+        this.setState({usersProjects});
         this.props.history.push('/myprojects');
         this.props.handleGetUsersProjects();
         }

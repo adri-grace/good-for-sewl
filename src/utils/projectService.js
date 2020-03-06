@@ -16,8 +16,8 @@ function createProject(info) {
 
 function index() {
     return fetch(BASE_URL, {
-        method: 'GET',
-        headers: {'Authorization' : 'Bearer ' + tokenService.getToken()}
+        method: 'GET'
+        // headers: {'Authorization' : 'Bearer ' + tokenService.getToken()}
     }).then(res => res.json());
 }
 

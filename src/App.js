@@ -28,14 +28,15 @@ class App extends Component {
     userService.logout();
     // Set user prop on state to null
     this.setState({ user: null, projects: [] });
+    this.handleGetProjects();
     this.props.history.push('/');
 
   }
   handleGetProjects = async () => {
-    if(userService.getUser()) {
+
       const {projects} = await projectService.index();
       this.setState({projects});
-    }
+
   }
   handleGetUsersProjects = async () => {
     if(userService.getUser()) {
@@ -64,15 +65,15 @@ class App extends Component {
               {...props} 
               isShowing={this.state.show} 
               handleClose={this.handleClose} 
+              projects={this.state.projects}
               handleSignUpOrLogin={this.handleSignUpOrLogin}
-              handleGetUsersProjects={this.handleGetUsersProjects} />} />
+              handleGetProjects={this.handleGetProjects} />} />
 
               <Route exact path="/myprojects" render={props => 
               <MyProjects 
               {...props}
               isShowing={this.state.show} 
               handleClose={this.handleClose} 
-              handleShowModal={this.handleShowModal}
               usersProjects={this.state.usersProjects}
               handleGetUsersProjects={this.handleGetUsersProjects} />
               } />

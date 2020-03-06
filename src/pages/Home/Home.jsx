@@ -5,6 +5,7 @@ import SignupButton from '../../components/Buttons/SignupButton';
 import { Button, Card, CardDeck, Container, Row, Col } from "react-bootstrap";
 
 import userService from '../../utils/userService';
+import projectService from '../../utils/projectService';
 
 const Home = (props) => {
     const user = userService.getUser('user');
@@ -37,39 +38,26 @@ const Home = (props) => {
                 <Container className="my-5">
                     <Row className="wrap justify-content-around">
                         <CardDeck>
-                            <Card>
-                                <Card.Img variant="top" src="https://via.placeholder.com/250" />
-                                <Card.Body>
-                                    <Card.Title>Project Here Name</Card.Title>
-                                    <Card.Text>
-                                        Maker: FirstName LastName</Card.Text>
-                                </Card.Body>
-                                <Card.Footer>
-                                    <Button>Get Inspired</Button>
-                                </Card.Footer>
-                            </Card>
-                            <Card>
-                                <Card.Img variant="top" src="https://via.placeholder.com/250" />
-                                <Card.Body>
-                                    <Card.Title>Project Here Name</Card.Title>
-                                    <Card.Text>
-                                        Maker: FirstName LastName</Card.Text>
-                                </Card.Body>
-                                <Card.Footer>
-                                    <Button>Get Inspired</Button>
-                                </Card.Footer>
-                            </Card>
-                            <Card>
-                                <Card.Img variant="top" src="https://via.placeholder.com/250" />
-                                <Card.Body>
-                                    <Card.Title>Project Here Name</Card.Title>
-                                    <Card.Text>
-                                        Maker: FirstName LastName</Card.Text>
-                                </Card.Body>
-                                <Card.Footer>
-                                    <Button>Get Inspired</Button>
-                                </Card.Footer>
-                            </Card>
+                        {
+                            props.projects.map(({ projectName, description, pattern, imageURL, addedBy, _id }) => (
+                                <Card key={_id} style={{ width: '300px' }} >
+                                    <Card.Img variant="top" src={imageURL} />
+                                    <Card.Body>
+                                        <Card.Title><strong>Project Name:</strong>  {projectName}</Card.Title>
+                                        <Card.Text>
+                                            <strong>Maker:</strong> {addedBy.firstName} {addedBy.lastName}
+                                        </Card.Text>
+                                        <Card.Text>
+                                            <strong>Description:</strong> {description}
+                                        </Card.Text>
+                                        <Card.Text><strong>Pattern:</strong> {pattern}</Card.Text>
+                                    </Card.Body>
+                                    {/* <Card.Footer>
+                                        <Button>Get Inspired</Button>
+                                    </Card.Footer> */}
+                                </Card>
+                            ))
+                            }
                         </CardDeck>
                     </Row>
                 </Container>
