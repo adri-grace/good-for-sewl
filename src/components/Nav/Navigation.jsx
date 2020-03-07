@@ -26,7 +26,7 @@ const Navigation = (props) => {
     </>
 
     return (
-        <Navbar collapseOnSelect expand="lg" bg="light" variant="light" className={`${styles.Nav}`}>
+        <Navbar collapseOnSelect expand="lg" bg="light" variant="light" className={styles.Nav} >
             <Navbar.Brand href="/">Good for Your Sew-l</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">

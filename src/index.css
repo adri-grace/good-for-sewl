@@ -12,6 +12,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-h1, h2, .navbar-brand {
+h1, h2 {
   font-family: 'Bellota', cursive;
+  font: 700;
+}
+.navbar-brand {
+  font-family: 'Bellota', cursive;
+  font-weight: 700 !important;
+}
+.btn-primary {
+  background-color: #36454f !important;
+  border: none !important;
+  font-weight: 500 !important;
 }
