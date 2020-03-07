@@ -51,6 +51,7 @@ class CreateProjectForm extends Component {
             this.state.imageURL
         );
     }
+
     render() { 
         return ( 
         <>
@@ -60,7 +61,7 @@ class CreateProjectForm extends Component {
         }
         <form onSubmit={this.handleSubmit}>
             <fieldset>
-                <legend>Add a new project</legend>
+                <legend>Enter your project information</legend>
                 <label htmlFor="projectName">Project Name</label>
                 <input 
                 type="text"

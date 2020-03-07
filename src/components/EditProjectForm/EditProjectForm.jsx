@@ -15,20 +15,6 @@ class EditProjectForm extends Component {
             error: ''
          }
     }
-    handleEdit = e => {
-        const project = this.state.project.find(function(project) {
-          if (project.id === e.target.id) {
-            return project;
-          }
-        });
-        this.setState({
-          projectName: project.projectName,
-          description: project.description,
-          pattern: project.pattern,
-          create: false
-        });
-      };
-
     handleChange = e => {
         this.setState({
             error: '',
@@ -45,7 +31,6 @@ class EditProjectForm extends Component {
             this.setState(this.getInitialState(), () => {
                 this.props.handleClose();
                 this.props.handleGetUsersProjects();
-                // this.props.history.push('/myprojects');
             });
         } catch (error) {
             this.setState({ 
@@ -65,6 +50,7 @@ class EditProjectForm extends Component {
             this.state.imageURL
         );
     }
+
     render() { 
         return ( 
         <>
@@ -74,12 +60,12 @@ class EditProjectForm extends Component {
         }
         <form onSubmit={this.handleSubmit}>
             <fieldset>
-                <legend>Edit your project information</legend>
+                <legend>Enter the updated information</legend>
                 <label htmlFor="projectName">Project Name</label>
                 <input 
                 type="text"
-                placeholder="Project Name"
-                value={this.state.projectName}
+                placeholder="Updated Project Name"
+                defaultValue={this.state.projectName}
                 id="projectName"
                 name="projectName"
                 onChange={this.handleChange}
@@ -88,7 +74,7 @@ class EditProjectForm extends Component {
                 <textarea
                 type="text"
                 rows={4}
-                placeholder="Write a brief description of your project"
+                placeholder="Update your project description"
                 value={this.state.description}
                 id="description"
                 name="description"
@@ -97,7 +83,7 @@ class EditProjectForm extends Component {
                 <label htmlFor="pattern">If you used a pattern, enter the brand and style number</label>
                 <input 
                 type="text"
-                placeholder="Pattern information"
+                placeholder="Update your pattern info"
                 value={this.state.pattern}
                 id="pattern"
                 name="pattern"
@@ -106,7 +92,7 @@ class EditProjectForm extends Component {
                 <label htmlFor="imageURL">Link to your project photo</label>
                 <input 
                 type="text"
-                placeholder="https://yourURLhere.com/yourproject"
+                placeholder="https://yournewURLhere.com/yourproject"
                 value={this.state.imageURL}
                 id="imageURL"
                 name="imageURL"

@@ -16,7 +16,7 @@ const CreateProjectButton = (props) => {
         <Button onClick={showModal}>Create a Project</Button>
         <Modal show={isOpen} onHide={hideModal}>
           <Modal.Header closeButton>
-            <Modal.Title></Modal.Title>
+            <Modal.Title>Add your project</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <CreateProjectForm {...props} />

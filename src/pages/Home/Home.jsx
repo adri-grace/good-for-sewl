@@ -26,7 +26,7 @@ const Home = (props) => {
             <Container className={`${styles.Home} py-5`}>
                 <Row className="wrap justify-content-center mb-5">
                     <Col xs lg={9}>
-                        <h1 className="text-center mb-4">Creating things is good for soul. <br />So is inspiring others.</h1>
+                        <h1 className="text-center mb-4">Creating things is good for the soul. <br />So is inspiring others.</h1>
                         <h2 className="text-center">Make. Share. Inspire.</h2>
                     </Col>
                 </Row>
@@ -42,7 +42,7 @@ const Home = (props) => {
                                 <Card key={_id} style={{ width: '300px' }} >
                                     <Card.Img variant="top" src={imageURL} />
                                     <Card.Body>
-                                        <Card.Title><strong>Project Name:</strong>  {projectName}</Card.Title>
+                                        <Card.Title>{projectName}</Card.Title>
                                         <Card.Text>
                                             <strong>Maker:</strong> {addedBy.firstName} {addedBy.lastName}
                                         </Card.Text>

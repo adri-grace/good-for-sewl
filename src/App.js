@@ -30,13 +30,10 @@ class App extends Component {
     this.setState({ user: null, projects: [] });
     this.handleGetProjects();
     this.props.history.push('/');
-
   }
   handleGetProjects = async () => {
-
       const {projects} = await projectService.index();
       this.setState({projects});
-
   }
   handleGetUsersProjects = async () => {
     if(userService.getUser()) {
@@ -56,6 +53,7 @@ class App extends Component {
         {...this.props} 
         handleLogout={this.handleLogout}
         handleClose={this.handleClose}
+        usersProjects={this.state.usersProjects}
         handleSignUpOrLogin={this.handleSignUpOrLogin}
         handleGetUsersProjects={this.handleGetUsersProjects} />
         <div className="App-inner">

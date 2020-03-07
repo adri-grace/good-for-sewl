@@ -17,6 +17,7 @@ class MyProjects extends Component {
         this.props.handleGetUsersProjects();
         }
     }
+
     render() {
         return (
             <>

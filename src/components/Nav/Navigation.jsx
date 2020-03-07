@@ -5,13 +5,14 @@ import LoginButton from '../Buttons/LoginButton';
 import SignupButton from '../Buttons/SignupButton';
 
 import userService from '../../utils/userService';
+// import projectService from '../../utils/projectService';
 
 const Navigation = (props) => {
     const user = userService.getUser('user');
     const conditionalUI = userService.getUser() 
     ? <> 
     <Nav className="ml-auto" >
-<Nav.Link href="/myprojects">{user.firstName}'s Projects</Nav.Link>
+<Nav.Link href="" onClick={props.handleGetUsersProjects}>{user.firstName}'s Projects</Nav.Link>
     <Nav.Link href="" onClick={props.handleLogout}>Logout</Nav.Link>
     </Nav>
     </> 
