@@ -2,7 +2,7 @@ import React from 'react';
 import styles from "./Home.module.css";
 import LoginButton from '../../components/Buttons/LoginButton';
 import SignupButton from '../../components/Buttons/SignupButton';
-import { Card, CardDeck, Container, Row, Col } from "react-bootstrap";
+import { Card, Container, Row, Col } from "react-bootstrap";
 
 import userService from '../../utils/userService';
 
@@ -35,26 +35,26 @@ const Home = (props) => {
                 </Row>
                 </Container>
                 <Container className="my-5">
-                    <Row className="wrap justify-content-around">
-                        <CardDeck>
+                    <Row className="wrap justify-content-between">
                         {
                             props.projects.map(({ projectName, description, pattern, imageURL, addedBy, _id }) => (
-                                <Card key={_id} style={{ width: '300px' }} >
-                                    <Card.Img variant="top" src={imageURL} />
-                                    <Card.Body>
-                                        <Card.Title>{projectName}</Card.Title>
-                                        <Card.Text>
-                                            <strong>Maker:</strong> {addedBy.firstName} {addedBy.lastName}
-                                        </Card.Text>
-                                        <Card.Text>
-                                            <strong>Description:</strong> {description}
-                                        </Card.Text>
-                                        <Card.Text><strong>Pattern:</strong> {pattern}</Card.Text>
-                                    </Card.Body>
-                                </Card>
+                                    <Col xs={12} md={6} lg={4} style={{ marginBottom: '20px' }}>
+                                        <Card key={_id} style={{ height: '100%' }} >
+                                            <Card.Img variant="top" src={imageURL} />
+                                            <Card.Body>
+                                                <Card.Title>{projectName}</Card.Title>
+                                                <Card.Text>
+                                                    <strong>Maker:</strong> {addedBy.firstName} {addedBy.lastName}
+                                                </Card.Text>
+                                                <Card.Text>
+                                                    <strong>Description:</strong> {description}
+                                                </Card.Text>
+                                                <Card.Text><strong>Pattern:</strong> {pattern}</Card.Text>
+                                            </Card.Body>
+                                        </Card>
+                                    </Col>
                             ))
                             }
-                        </CardDeck>
                     </Row>
                 </Container>
         </>
