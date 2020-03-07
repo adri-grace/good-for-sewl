@@ -10,14 +10,14 @@ With so much digital time during my bootcamp, I am craving some NON-digital crea
 * User: Delete projects
 
 ## Technologies Used
-* HTML
-* CSS
-* React JS
-* Mongoose
-* MongoDB and MongoDB Atlas
+* MERN:
+    – MongoDB
+    – Express
+    – React JS
+    – Node JS
+* HTML/CSS
 * React Bootstrap
-* JSON Web Tokens
-* Express
+* Authorization with JSON Web Token
 
 #### Icebox
 * User: Edit/Update projects
