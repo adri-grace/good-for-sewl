@@ -31,6 +31,7 @@ class SignupForm extends Component {
                 this.props.handleClose();
                 this.props.history.push('/myprojects');
                 this.props.handleGetUsersProjects();
+
             });
         } catch (error) {
             this.setState({
