@@ -39,9 +39,10 @@ async function index(req, res) {
 
   async function editProject(req, res) {
     try {
-      const project = await Project.findByIdAndUpdate(req.params.id);
+      const project = await Project.findByIdAndUpdate(req.params.id, req.body);
       getUsersProjects(req, res);
     } catch (error) {
+      console.log(error);
       res.status(401).json({err: 'cannot edit'})
     }
   }

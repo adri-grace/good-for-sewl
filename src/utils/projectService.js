@@ -36,16 +36,14 @@ function deleteProject(id) {
     }).then(res => res.json());  
 }
 
-function editProject(id) {
+function editProject(id, data) {
     return fetch(BASE_URL + id, {
         method: 'PUT',
         headers: new Headers({ 
             'Content-type' : 'application/json',
             'Authorization' : 'Bearer ' + tokenService.getToken() }),
-    })
-    // .then(res => res.json());
-    .then(res => res.text())          // convert to plain text
-  .then(text => console.log(text))
+            body: JSON.stringify(data)
+    }).then(res => res.json());
 }
 export default {
     createProject,

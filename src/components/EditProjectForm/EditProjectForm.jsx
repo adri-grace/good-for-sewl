@@ -41,7 +41,7 @@ class EditProjectForm extends Component {
         try {
             const { projectName, description, pattern, imageURL } = this.state;
             const addedBy = userService.getUser()._id;
-            await projectService.editProject({ projectName, description, pattern, imageURL, addedBy});
+            await projectService.editProject(this.props.projectID, { projectName, description, pattern, imageURL, addedBy});
             this.setState(this.getInitialState(), () => {
                 this.props.handleClose();
                 this.props.handleGetUsersProjects();

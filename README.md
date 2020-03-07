@@ -8,17 +8,19 @@ With so much digital time during my bootcamp, I am craving some NON-digital crea
 * User: Securely login from home page and display all user's projects
 * User: Create a new project with identifying title, description, pattern information, add an image link
 * User: Delete projects
+* User: Edit project information
 
 ## Technologies Used
 * MERN:
-    – MongoDB
-    – Express
-    – React JS
-    – Node JS
+    * MongoDB
+    * Express
+    * React JS
+    * Node JS
 * HTML/CSS
 * React Bootstrap
 * Authorization with JSON Web Token
 
 #### Icebox
-* User: Edit/Update projects
 * User: (reach goal) Upload their own image instead of link
+* Styling
+* Add to Heroku
