@@ -4,9 +4,11 @@ import EditProjectForm from '../EditProjectForm/EditProjectForm';
 
 const EditProjectButton = (props) => {
   const [isOpen, setIsOpen] = React.useState(false);
+  // const updateProjectById = (id, payload) => api.put(`/project/${id}`, payload);
 
   const showEditModal = () => {
     setIsOpen(true);
+    // updateProjectById(id);
   };
 
   const hideEditModal = () => {

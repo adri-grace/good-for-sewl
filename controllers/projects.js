@@ -42,7 +42,7 @@ async function index(req, res) {
       const project = await Project.findByIdAndUpdate(req.params.id);
       getUsersProjects(req, res);
     } catch (error) {
-      res.status(401).json({err: 'cannot delete'})
+      res.status(401).json({err: 'cannot edit'})
     }
   }
 

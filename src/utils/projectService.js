@@ -36,9 +36,9 @@ function deleteProject(id) {
     }).then(res => res.json());  
 }
 
-function editProject() {
-    return fetch(BASE_URL, {
-        method: 'POST',
+function editProject(id) {
+    return fetch(BASE_URL + id, {
+        method: 'PUT',
         headers: new Headers({ 
             'Content-type' : 'application/json',
             'Authorization' : 'Bearer ' + tokenService.getToken() }),

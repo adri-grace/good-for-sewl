@@ -15,7 +15,6 @@ class EditProjectForm extends Component {
             error: ''
          }
     }
-
     handleEdit = e => {
         const project = this.state.project.find(function(project) {
           if (project.id === e.target.id) {
