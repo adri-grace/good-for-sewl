@@ -67,7 +67,8 @@ class App extends Component {
               handleClose={this.handleClose} 
               projects={this.state.projects}
               handleSignUpOrLogin={this.handleSignUpOrLogin}
-              handleGetProjects={this.handleGetProjects} />} />
+              handleGetProjects={this.handleGetProjects}
+              handleGetUsersProjects={this.handleGetUsersProjects} />} />
 
               <Route exact path="/myprojects" render={props => 
               <MyProjects 

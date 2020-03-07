@@ -2,10 +2,9 @@ import React from 'react';
 import styles from "./Home.module.css";
 import LoginButton from '../../components/Buttons/LoginButton';
 import SignupButton from '../../components/Buttons/SignupButton';
-import { Button, Card, CardDeck, Container, Row, Col } from "react-bootstrap";
+import { Card, CardDeck, Container, Row, Col } from "react-bootstrap";
 
 import userService from '../../utils/userService';
-import projectService from '../../utils/projectService';
 
 const Home = (props) => {
     const user = userService.getUser('user');
@@ -52,9 +51,6 @@ const Home = (props) => {
                                         </Card.Text>
                                         <Card.Text><strong>Pattern:</strong> {pattern}</Card.Text>
                                     </Card.Body>
-                                    {/* <Card.Footer>
-                                        <Button>Get Inspired</Button>
-                                    </Card.Footer> */}
                                 </Card>
                             ))
                             }

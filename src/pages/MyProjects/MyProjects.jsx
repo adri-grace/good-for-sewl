@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styles from './MyProjects.module.css';
 import { Button, Card, CardDeck, Container, Row } from "react-bootstrap";
 import CreateProjectButton from '../../components/Buttons/CreateProjectButton';
+import EditProjectButton from '../../components/Buttons/EditProjectButton';
 import userService from '../../utils/userService';
 import projectService from '../../utils/projectService';
 
@@ -42,7 +43,7 @@ class MyProjects extends Component {
                                             <Card.Text><strong>Pattern:</strong> {pattern}</Card.Text>
                                         </Card.Body>
                                         <Card.Footer>
-                                            <Button className="mr-4">Edit</Button>
+                                            <EditProjectButton {...this.props} />
                                             <Button onClick={() => this.handleDelete(_id)} type="submit">Delete</Button>
                                         </Card.Footer>
                                     </Card>
