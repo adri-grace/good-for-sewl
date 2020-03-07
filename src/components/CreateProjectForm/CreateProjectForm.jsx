@@ -31,7 +31,6 @@ class CreateProjectForm extends Component {
             this.setState(this.getInitialState(), () => {
                 this.props.handleClose();
                 this.props.handleGetUsersProjects();
-                // this.props.history.push('/myprojects');
             });
         } catch (error) {
             this.setState({ 

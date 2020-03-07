@@ -8,10 +8,9 @@ class EditProjectForm extends Component {
     state = this.getInitialState();
     getInitialState(_id) {
         return { 
-            projectName: '',
-            description: '',
-            pattern: '',
-            imageURL: '',
+            projectName: this.props.projectName,
+            description: this.props.description,
+            imageURL: this.props.imageURL,
             error: ''
          }
     }
@@ -25,9 +24,9 @@ class EditProjectForm extends Component {
         e.preventDefault();
         if (!this.isFormValid()) return;
         try {
-            const { projectName, description, pattern, imageURL } = this.state;
+            const { projectName, description, imageURL } = this.state;
             const addedBy = userService.getUser()._id;
-            await projectService.editProject(this.props.projectID, { projectName, description, pattern, imageURL, addedBy});
+            await projectService.editProject(this.props.projectID, { projectName, description, imageURL, addedBy});
             this.setState(this.getInitialState(), () => {
                 this.props.handleClose();
                 this.props.handleGetUsersProjects();
@@ -36,7 +35,6 @@ class EditProjectForm extends Component {
             this.setState({ 
                 projectName: '',
                 description: '',
-                pattern: '',
                 imageUrl: '',
                 error: error.message
              })
@@ -46,7 +44,6 @@ class EditProjectForm extends Component {
         return (
             this.state.projectName &&
             this.state.description &&
-            this.state.pattern &&
             this.state.imageURL
         );
     }
@@ -60,7 +57,7 @@ class EditProjectForm extends Component {
         }
         <form onSubmit={this.handleSubmit}>
             <fieldset>
-                <legend>Enter the updated information</legend>
+                <legend>Update your project information</legend>
                 <label htmlFor="projectName">Project Name</label>
                 <input 
                 type="text"
@@ -78,15 +75,6 @@ class EditProjectForm extends Component {
                 value={this.state.description}
                 id="description"
                 name="description"
-                onChange={this.handleChange}
-                />
-                <label htmlFor="pattern">If you used a pattern, enter the brand and style number</label>
-                <input 
-                type="text"
-                placeholder="Update your pattern info"
-                value={this.state.pattern}
-                id="pattern"
-                name="pattern"
                 onChange={this.handleChange}
                 />
                 <label htmlFor="imageURL">Link to your project photo</label>

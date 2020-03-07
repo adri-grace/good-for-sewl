@@ -5,18 +5,17 @@ import EditProjectForm from '../EditProjectForm/EditProjectForm';
 const EditProjectButton = (props) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
-  const showEditModal = () => {
+  const showModal = () => {
     setIsOpen(true);
   };
 
-  const hideEditModal = () => {
+  const hideModal = () => {
     setIsOpen(false);
   };
         return ( <>
-        <Button onClick={showEditModal} className="mr-3">Edit</Button>
-        <Modal show={isOpen} onHide={hideEditModal}>
+        <Button onClick={showModal} className="mr-3">Edit</Button>
+        <Modal show={isOpen} onHide={hideModal}>
           <Modal.Header closeButton>
-            <Modal.Title>Edit your project</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <EditProjectForm {...props} />

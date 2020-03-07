@@ -44,7 +44,12 @@ class MyProjects extends Component {
                                             <Card.Text><strong>Pattern:</strong> {pattern}</Card.Text>
                                         </Card.Body>
                                         <Card.Footer>
-                                            <EditProjectButton {...this.props} projectID={_id} />
+                                            <EditProjectButton 
+                                            {...this.props} 
+                                            projectID={_id} 
+                                            projectName={projectName}
+                                            description={description}
+                                            imageURL={imageURL} />
                                             <Button onClick={() => this.handleDelete(_id)} type="submit">Delete</Button>
                                         </Card.Footer>
                                     </Card>
