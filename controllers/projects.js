@@ -37,10 +37,20 @@ async function index(req, res) {
     }
   }
 
+  async function editProject(req, res) {
+    try {
+      const project = await Project.findByIdAndUpdate(req.params.id);
+      getUsersProjects(req, res);
+    } catch (error) {
+      res.status(401).json({err: 'cannot delete'})
+    }
+  }
+
 
 module.exports = {
     createProject,
     index,
     deleteProject,
-    getUsersProjects
+    getUsersProjects,
+    editProject
 }

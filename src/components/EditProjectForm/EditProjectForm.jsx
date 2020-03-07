@@ -6,7 +6,7 @@ import projectService from '../../utils/projectService';
 
 class EditProjectForm extends Component {
     state = this.getInitialState();
-    getInitialState() {
+    getInitialState(_id) {
         return { 
             projectName: '',
             description: '',
@@ -15,6 +15,21 @@ class EditProjectForm extends Component {
             error: ''
          }
     }
+
+    handleEdit = e => {
+        const project = this.state.project.find(function(project) {
+          if (project.id === e.target.id) {
+            return project;
+          }
+        });
+        this.setState({
+          projectName: project.projectName,
+          description: project.description,
+          pattern: project.pattern,
+          create: false
+        });
+      };
+
     handleChange = e => {
         this.setState({
             error: '',

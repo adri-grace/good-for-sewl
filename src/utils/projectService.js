@@ -17,7 +17,6 @@ function createProject(info) {
 function index() {
     return fetch(BASE_URL, {
         method: 'GET'
-        // headers: {'Authorization' : 'Bearer ' + tokenService.getToken()}
     }).then(res => res.json());
 }
 
@@ -37,9 +36,21 @@ function deleteProject(id) {
     }).then(res => res.json());  
 }
 
+function editProject() {
+    return fetch(BASE_URL, {
+        method: 'POST',
+        headers: new Headers({ 
+            'Content-type' : 'application/json',
+            'Authorization' : 'Bearer ' + tokenService.getToken() }),
+    })
+    // .then(res => res.json());
+    .then(res => res.text())          // convert to plain text
+  .then(text => console.log(text))
+}
 export default {
     createProject,
     index,
     deleteProject,
-    getUsersProjects
+    getUsersProjects,
+    editProject
 }
