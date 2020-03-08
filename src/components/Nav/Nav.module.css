@@ -1,3 +1,7 @@
 .login-pad {
     margin-right: 2rem;
 }
+.navbar-brand {
+    font-family: 'Bellota', cursive;
+    font-weight: 700 !important;
+}
