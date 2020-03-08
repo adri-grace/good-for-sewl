@@ -28,7 +28,6 @@ class SignupForm extends Component {
             const { firstName, lastName, email, password } = this.state;
             await userService.signup({ firstName, lastName, email, password });
             this.setState(this.getInitialState(), () => {
-                this.props.handleClose();
                 this.props.history.push('/myprojects');
                 this.props.handleGetUsersProjects();
 
@@ -107,7 +106,7 @@ class SignupForm extends Component {
                             id="passwordConfirm"
                             onChange={this.handleChange} />
                         <Modal.Footer>
-                            <Button type="submit" disabled={!this.isFormValid()}>Login</Button>
+                            <Button type="submit" disabled={!this.isFormValid()}>Sign up</Button>
                             </Modal.Footer>
                     </fieldset>
                 </form>

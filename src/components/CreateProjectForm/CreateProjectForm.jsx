@@ -29,7 +29,6 @@ class CreateProjectForm extends Component {
             const addedBy = userService.getUser()._id;
             await projectService.createProject({ projectName, description, pattern, imageURL, addedBy});
             this.setState(this.getInitialState(), () => {
-                this.props.handleClose();
                 this.props.handleGetUsersProjects();
             });
         } catch (error) {

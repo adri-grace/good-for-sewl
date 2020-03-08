@@ -13,13 +13,10 @@ import MyProjects from './pages/MyProjects/MyProjects';
 class App extends Component {
   state = {
     user: userService.getUser(),
-    show: false,
     projects: [],
     usersProjects: []
   }
-  handleClose = () => {
-    this.setState({ show: false })
-  }
+  
   handleSignUpOrLogin = () => {
     this.setState({ user: userService.getUser() });
     this.props.history.push('/myprojects')
@@ -52,7 +49,6 @@ class App extends Component {
         <Navigation 
         {...this.props} 
         handleLogout={this.handleLogout}
-        handleClose={this.handleClose}
         usersProjects={this.state.usersProjects}
         handleSignUpOrLogin={this.handleSignUpOrLogin}
         handleGetUsersProjects={this.handleGetUsersProjects} />
@@ -62,7 +58,6 @@ class App extends Component {
               <Home 
               {...props} 
               isShowing={this.state.show} 
-              handleClose={this.handleClose} 
               projects={this.state.projects}
               handleSignUpOrLogin={this.handleSignUpOrLogin}
               handleGetProjects={this.handleGetProjects}
@@ -72,7 +67,6 @@ class App extends Component {
               <MyProjects 
               {...props}
               isShowing={this.state.show} 
-              handleClose={this.handleClose} 
               usersProjects={this.state.usersProjects}
               handleGetUsersProjects={this.handleGetUsersProjects} />
               } />

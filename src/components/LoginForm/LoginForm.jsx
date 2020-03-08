@@ -26,7 +26,6 @@ class LoginForm extends Component {
             await userService.login({ email, password });
             this.setState(this.getInitialState(), () => {
                 this.props.handleSignUpOrLogin();
-                this.props.handleClose();
                 this.props.history.push('/myprojects');
                 this.props.handleGetUsersProjects();
             });

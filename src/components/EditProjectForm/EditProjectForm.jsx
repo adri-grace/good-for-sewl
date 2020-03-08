@@ -20,6 +20,7 @@ class EditProjectForm extends Component {
             ...{ [e.target.name]: e.target.value }
         })
     }
+
     handleSubmit = async e => {
         e.preventDefault();
         if (!this.isFormValid()) return;
@@ -28,7 +29,6 @@ class EditProjectForm extends Component {
             const addedBy = userService.getUser()._id;
             await projectService.editProject(this.props.projectID, { projectName, description, imageURL, addedBy});
             this.setState(this.getInitialState(), () => {
-                this.props.handleClose();
                 this.props.handleGetUsersProjects();
             });
         } catch (error) {
