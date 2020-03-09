@@ -1,4 +1,5 @@
 # Good for the Sew-l
+https://good-for-your-sewl.herokuapp.com/
 
 ### Project Overview
 With so much digital time during my bootcamp, I am craving some NON-digital creative time and a little inspiration. This will be a Pinterest-style app where visitors can view other people's projects and get some inspiration. After sign up or log in, users can also add, review, edit, or delete their own projects that will be shared in the main page feed.
@@ -23,4 +24,7 @@ With so much digital time during my bootcamp, I am craving some NON-digital crea
 #### Icebox
 * User: (reach goal) Upload their own image instead of link
 * Styling
-* Add to Heroku
+
+#### Screen Captures
+![Good for your Sew-l landing page](/public/screen-captures/good-sewl-landing.png?raw=true "Good for you Sew-l Landing Page")
+![Good for your Sew-l create project form](/public/screen-captures/good-sewl-create-form.png?raw=true "Good for you Sew-l create project form")
